@@ -12,14 +12,7 @@ defined('TYPO3') or die();
         ],
         [
             \Maispace\MaiCalendar\Controller\CalendarController::class => 'icalExport',
-        ]
-    );
-
-    // Add TypoScript
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
-        '@import "EXT:mai_calendar/Configuration/TypoScript/setup.typoscript"'
-    );
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(
-        '@import "EXT:mai_calendar/Configuration/TypoScript/constants.typoscript"'
+        ],
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
     );
 })();

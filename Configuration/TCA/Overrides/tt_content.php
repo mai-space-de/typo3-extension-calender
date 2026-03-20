@@ -16,13 +16,6 @@ defined('TYPO3') or die();
     'mai_calendar'
 );
 
-// Assign FlexForm to the content element
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:mai_calendar/Configuration/FlexForms/Calendar.xml',
-    'mai_calendar_view'
-);
-
 // Show FlexForm field and hide unused standard fields
 $GLOBALS['TCA']['tt_content']['types']['mai_calendar_view'] = [
     'showitem' => '
@@ -37,6 +30,9 @@ $GLOBALS['TCA']['tt_content']['types']['mai_calendar_view'] = [
     'columnsOverrides' => [
         'pi_flexform' => [
             'label' => 'LLL:EXT:mai_calendar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.mai_calendar_view',
+            'config' => [
+                'ds' => 'FILE:EXT:mai_calendar/Configuration/FlexForms/Calendar.xml',
+            ],
         ],
     ],
 ];
