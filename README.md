@@ -5,7 +5,7 @@
 
 A calendar extension with month, week, and list views and iCal export. Aggregates events from multiple sources via `EventProviderInterface`. Extensions that provide events (e.g. `mai_project`) implement this interface and declare `maispace/mai-calendar` as a suggested dependency.
 
-**Requires:** TYPO3 13.4 LTS / 14.0 · PHP 8.2+
+**Requires:** TYPO3 13.4 LTS / 14.1 · PHP 8.2+
 
 ---
 
