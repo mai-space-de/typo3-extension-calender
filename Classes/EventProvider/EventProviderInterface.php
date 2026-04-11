@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\EventProvider;
+namespace Maispace\MaiEvents\EventProvider;
 
-use Maispace\MaiCalendar\Domain\Model\Event;
+use Maispace\MaiEvents\Domain\Model\Event;
 
 /**
  * Interface for event providers.
  *
- * Implement this interface to supply events to the CalendarDataProcessor
+ * Implement this interface to supply events to the EventsDataProcessor
  * from any data source (e.g. maispace/project, external APIs, database records).
  *
  * Implementations must be tagged with the service tag

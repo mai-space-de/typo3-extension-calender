@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\Controller;
+namespace Maispace\MaiEvents\Controller;
 
-use Maispace\MaiCalendar\EventProvider\EventProviderInterface;
-use Maispace\MaiCalendar\Domain\Model\Event;
-use Maispace\MaiCalendar\Service\ICalExportService;
+use Maispace\MaiEvents\EventProvider\EventProviderInterface;
+use Maispace\MaiEvents\Domain\Model\Event;
+use Maispace\MaiEvents\Service\ICalExportService;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -14,7 +14,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 /**
  * Controller providing the iCal export endpoint.
  */
-class CalendarController extends ActionController
+class EventsController extends ActionController
 {
     /**
      * @param iterable<EventProviderInterface> $eventProviders
@@ -50,7 +50,7 @@ class CalendarController extends ActionController
 
         return $response
             ->withHeader('Content-Type', 'text/calendar; charset=utf-8')
-            ->withHeader('Content-Disposition', 'attachment; filename="calendar.ics"');
+            ->withHeader('Content-Disposition', 'attachment; filename="events.ics"');
     }
 
     private function resolveDate(string $value, \DateTimeImmutable $default): \DateTimeImmutable

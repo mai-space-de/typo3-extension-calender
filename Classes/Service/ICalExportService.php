@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\Service;
+namespace Maispace\MaiEvents\Service;
 
-use Maispace\MaiCalendar\Domain\Model\Event;
+use Maispace\MaiEvents\Domain\Model\Event;
 
 /**
  * Generates iCalendar (RFC 5545) output from a list of events.
@@ -24,7 +24,7 @@ class ICalExportService
         $lines = [];
         $lines[] = 'BEGIN:VCALENDAR';
         $lines[] = 'VERSION:2.0';
-        $lines[] = 'PRODID:-//Maispace//MaiCalendar//EN';
+        $lines[] = 'PRODID:-//Maispace//MaiEvents//EN';
         $lines[] = 'CALSCALE:GREGORIAN';
         $lines[] = 'METHOD:PUBLISH';
         $lines[] = $this->fold('X-WR-CALNAME:' . $this->escapeText($calendarName));

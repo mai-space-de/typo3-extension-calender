@@ -1,10 +1,10 @@
-# mai_calendar TypoScript Constants
+# mai_events TypoScript Constants
 
-plugin.tx_maicalendar {
+plugin.tx_maievents {
     view {
-        templateRootPath = EXT:mai_calendar/Resources/Private/Templates/
-        partialRootPath = EXT:mai_calendar/Resources/Private/Partials/
-        layoutRootPath = EXT:mai_calendar/Resources/Private/Layouts/
+        templateRootPath = EXT:mai_events/Resources/Private/Templates/
+        partialRootPath = EXT:mai_events/Resources/Private/Partials/
+        layoutRootPath = EXT:mai_events/Resources/Private/Layouts/
     }
     settings {
         defaultViewMode = month

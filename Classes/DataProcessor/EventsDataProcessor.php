@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\DataProcessor;
+namespace Maispace\MaiEvents\DataProcessor;
 
-use Maispace\MaiCalendar\Domain\Model\Event;
-use Maispace\MaiCalendar\EventProvider\EventProviderInterface;
+use Maispace\MaiEvents\Domain\Model\Event;
+use Maispace\MaiEvents\EventProvider\EventProviderInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
 /**
- * CalendarDataProcessor aggregates events from all registered EventProviderInterface
+ * EventsDataProcessor aggregates events from all registered EventProviderInterface
  * implementations and structures them for use in Fluid templates.
  *
  * Supported view modes:
@@ -33,7 +33,7 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  *   {calendar.weeks}         array[]            – only in month/week mode
  *   {calendar.navigation}    array              – prev/next navigation dates
  */
-class CalendarDataProcessor implements DataProcessorInterface
+class EventsDataProcessor implements DataProcessorInterface
 {
     /**
      * @param iterable<EventProviderInterface> $eventProviders
@@ -85,8 +85,8 @@ class CalendarDataProcessor implements DataProcessorInterface
     {
         $allowed = ['month', 'week', 'list'];
 
-        // Allow override via GET parameter (e.g. ?tx_maicalendar_view=week)
-        $requestMode = $_GET['tx_maicalendar_view'] ?? '';
+        // Allow override via GET parameter (e.g. ?tx_maievents_view=week)
+        $requestMode = $_GET['tx_maievents_view'] ?? '';
         if (in_array($requestMode, $allowed, true)) {
             return $requestMode;
         }
@@ -104,8 +104,8 @@ class CalendarDataProcessor implements DataProcessorInterface
      */
     private function resolveCurrentDate(array $processorConfiguration, array $processedData): \DateTimeImmutable
     {
-        // Allow navigation via GET parameter (e.g. ?tx_maicalendar_date=2024-06-01)
-        $requestDate = $_GET['tx_maicalendar_date'] ?? '';
+        // Allow navigation via GET parameter (e.g. ?tx_maievents_date=2024-06-01)
+        $requestDate = $_GET['tx_maievents_date'] ?? '';
         if ($requestDate !== '') {
             $parsed = \DateTimeImmutable::createFromFormat('Y-m-d', $requestDate);
             if ($parsed !== false) {

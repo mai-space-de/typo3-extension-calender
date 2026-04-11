@@ -8,22 +8,17 @@ services:
     resource: '../Classes/*'
 
   # Tag all EventProviderInterface implementations for automatic discovery
-  Maispace\MaiCalendar\EventProvider\EventProviderInterface:
+  Maispace\MaiEvents\EventProvider\EventProviderInterface:
     tags:
-      - name: maispace.calendar.event_provider
+      - name: maispace.events.event_provider
 
   # Inject all tagged event providers as an iterable into the DataProcessor
-  Maispace\MaiCalendar\DataProcessor\CalendarDataProcessor:
+  Maispace\MaiEvents\DataProcessor\EventsDataProcessor:
     arguments:
-      $eventProviders: !tagged_iterator maispace.calendar.event_provider
+      $eventProviders: !tagged_iterator maispace.events.event_provider
 
   # Inject all tagged event providers as an iterable into the Controller
-  Maispace\MaiCalendar\Controller\CalendarController:
+  Maispace\MaiEvents\Controller\EventsController:
     arguments:
-      $eventProviders: !tagged_iterator maispace.calendar.event_provider
+      $eventProviders: !tagged_iterator maispace.events.event_provider
     public: true
-
-  # MaiProjectEventProvider is disabled by default and can be enabled
-  # by projects that have the maispace/project extension installed.
-  Maispace\MaiCalendar\EventProvider\MaiProjectEventProvider:
-    autoconfigure: false

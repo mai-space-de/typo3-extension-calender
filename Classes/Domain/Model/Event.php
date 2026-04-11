@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\Domain\Model;
+namespace Maispace\MaiEvents\Domain\Model;
 
 /**
  * Represents a single calendar event.

@@ -4,3 +4,4 @@
 /var/
 /public/
 /.phpunit.result.cache
+/composer.lock

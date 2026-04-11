@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-// Register the "Calendar View" content element
+// Register the "Events View" content element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
     [
-        'label' => 'LLL:EXT:mai_calendar/Resources/Private/Language/locallang_db.xlf:tt_content.CType.mai_calendar_view',
-        'value' => 'mai_calendar_view',
-        'icon' => 'EXT:mai_calendar/Resources/Public/Icons/ContentElement/CalendarView.svg',
+        'label' => 'LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:tt_content.CType.mai_events_view',
+        'value' => 'mai_events_view',
+        'icon' => 'EXT:mai_events/Resources/Public/Icons/ContentElement/EventsView.svg',
         'group' => 'default',
     ],
     'CType',
-    'mai_calendar'
+    'mai_events'
 );
 
 // Show FlexForm field and hide unused standard fields
-$GLOBALS['TCA']['tt_content']['types']['mai_calendar_view'] = [
+$GLOBALS['TCA']['tt_content']['types']['mai_events_view'] = [
     'showitem' => '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
@@ -29,9 +29,9 @@ $GLOBALS['TCA']['tt_content']['types']['mai_calendar_view'] = [
     ',
     'columnsOverrides' => [
         'pi_flexform' => [
-            'label' => 'LLL:EXT:mai_calendar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.mai_calendar_view',
+            'label' => 'LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.mai_events_view',
             'config' => [
-                'ds' => 'FILE:EXT:mai_calendar/Configuration/FlexForms/Calendar.xml',
+                'ds' => 'FILE:EXT:mai_events/Configuration/FlexForms/Events.xml',
             ],
         ],
     ],

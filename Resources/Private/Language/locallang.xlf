@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="EXT:mai_calendar/Resources/Private/Language/locallang.xlf" date="2024-01-01T00:00:00Z" product-name="mai_calendar">
+    <file source-language="en" datatype="plaintext" original="EXT:mai_events/Resources/Private/Language/locallang.xlf" date="2024-01-01T00:00:00Z" product-name="mai_events">
         <header/>
         <body>
             <trans-unit id="calendar.navigation.prev" resname="calendar.navigation.prev">

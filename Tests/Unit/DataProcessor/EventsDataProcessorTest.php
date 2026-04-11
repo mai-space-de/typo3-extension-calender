@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\Tests\Unit\DataProcessor;
+namespace Maispace\MaiEvents\Tests\Unit\DataProcessor;
 
-use Maispace\MaiCalendar\DataProcessor\CalendarDataProcessor;
-use Maispace\MaiCalendar\Domain\Model\Event;
-use Maispace\MaiCalendar\EventProvider\EventProviderInterface;
+use Maispace\MaiEvents\DataProcessor\EventsDataProcessor;
+use Maispace\MaiEvents\Domain\Model\Event;
+use Maispace\MaiEvents\EventProvider\EventProviderInterface;
 use PHPUnit\Framework\TestCase;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-class CalendarDataProcessorTest extends TestCase
+class EventsDataProcessorTest extends TestCase
 {
     private function makeEvent(
         string $uid,
@@ -26,9 +26,9 @@ class CalendarDataProcessorTest extends TestCase
         );
     }
 
-    private function makeProcessor(array $providers = []): CalendarDataProcessor
+    private function makeProcessor(array $providers = []): EventsDataProcessor
     {
-        return new CalendarDataProcessor($providers);
+        return new EventsDataProcessor($providers);
     }
 
     // -------------------------------------------------------------------------
@@ -105,9 +105,9 @@ class CalendarDataProcessorTest extends TestCase
         $cObj = $this->createMock(ContentObjectRenderer::class);
 
         // June 2024 – starts on Saturday, 30 days
-        $_GET['tx_maicalendar_date'] = '2024-06-15';
+        $_GET['tx_maievents_date'] = '2024-06-15';
         $result = $processor->process($cObj, [], ['viewMode' => 'month'], []);
-        unset($_GET['tx_maicalendar_date']);
+        unset($_GET['tx_maievents_date']);
 
         $weeks = $result['calendar']['weeks'];
 
@@ -137,9 +137,9 @@ class CalendarDataProcessorTest extends TestCase
         $processor = $this->makeProcessor([$provider]);
         $cObj = $this->createMock(ContentObjectRenderer::class);
 
-        $_GET['tx_maicalendar_date'] = '2024-06-01';
+        $_GET['tx_maievents_date'] = '2024-06-01';
         $result = $processor->process($cObj, [], ['viewMode' => 'month'], []);
-        unset($_GET['tx_maicalendar_date']);
+        unset($_GET['tx_maievents_date']);
 
         $found = false;
         foreach ($result['calendar']['weeks'] as $week) {
@@ -163,9 +163,9 @@ class CalendarDataProcessorTest extends TestCase
         $processor = $this->makeProcessor([]);
         $cObj = $this->createMock(ContentObjectRenderer::class);
 
-        $_GET['tx_maicalendar_date'] = '2024-06-15';
+        $_GET['tx_maievents_date'] = '2024-06-15';
         $result = $processor->process($cObj, [], ['viewMode' => 'week'], []);
-        unset($_GET['tx_maicalendar_date']);
+        unset($_GET['tx_maievents_date']);
 
         $weeks = $result['calendar']['weeks'];
 
@@ -182,9 +182,9 @@ class CalendarDataProcessorTest extends TestCase
         $processor = $this->makeProcessor([]);
         $cObj = $this->createMock(ContentObjectRenderer::class);
 
-        $_GET['tx_maicalendar_date'] = '2024-06-15';
+        $_GET['tx_maievents_date'] = '2024-06-15';
         $result = $processor->process($cObj, [], ['viewMode' => 'month'], []);
-        unset($_GET['tx_maicalendar_date']);
+        unset($_GET['tx_maievents_date']);
 
         $nav = $result['calendar']['navigation'];
         self::assertSame('2024-05', $nav['prev']->format('Y-m'));
@@ -196,9 +196,9 @@ class CalendarDataProcessorTest extends TestCase
         $processor = $this->makeProcessor([]);
         $cObj = $this->createMock(ContentObjectRenderer::class);
 
-        $_GET['tx_maicalendar_date'] = '2024-06-15'; // Saturday
+        $_GET['tx_maievents_date'] = '2024-06-15'; // Saturday
         $result = $processor->process($cObj, [], ['viewMode' => 'week'], []);
-        unset($_GET['tx_maicalendar_date']);
+        unset($_GET['tx_maievents_date']);
 
         $nav = $result['calendar']['navigation'];
         $currentDate = new \DateTimeImmutable('2024-06-15');

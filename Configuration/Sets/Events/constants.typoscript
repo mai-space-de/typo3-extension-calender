@@ -1,1 +1,1 @@
-@import 'EXT:mai_calendar/Configuration/TypoScript/constants.typoscript'
+@import 'EXT:mai_events/Configuration/TypoScript/constants.typoscript'

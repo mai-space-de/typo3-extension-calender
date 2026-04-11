@@ -1,40 +1,40 @@
-# mai_calendar TypoScript Setup
+# mai_events TypoScript Setup
 
-plugin.tx_maicalendar {
+plugin.tx_maievents {
     view {
         templateRootPaths {
-            0 = EXT:mai_calendar/Resources/Private/Templates/
+            0 = EXT:mai_events/Resources/Private/Templates/
         }
         partialRootPaths {
-            0 = EXT:mai_calendar/Resources/Private/Partials/
+            0 = EXT:mai_events/Resources/Private/Partials/
         }
         layoutRootPaths {
-            0 = EXT:mai_calendar/Resources/Private/Layouts/
+            0 = EXT:mai_events/Resources/Private/Layouts/
         }
     }
     settings {
-        defaultViewMode = {$plugin.tx_maicalendar.settings.defaultViewMode}
-        listLimit = {$plugin.tx_maicalendar.settings.listLimit}
+        defaultViewMode = {$plugin.tx_maievents.settings.defaultViewMode}
+        listLimit = {$plugin.tx_maievents.settings.listLimit}
     }
 }
 
-# Content element: Calendar View
-tt_content.mai_calendar_view = FLUIDTEMPLATE
-tt_content.mai_calendar_view {
-    templateName = Calendar/Month
+# Content element: Events View
+tt_content.mai_events_view = FLUIDTEMPLATE
+tt_content.mai_events_view {
+    templateName = Events/Month
     templateRootPaths {
-        0 = EXT:mai_calendar/Resources/Private/Templates/
+        0 = EXT:mai_events/Resources/Private/Templates/
     }
     partialRootPaths {
-        0 = EXT:mai_calendar/Resources/Private/Partials/
+        0 = EXT:mai_events/Resources/Private/Partials/
     }
     layoutRootPaths {
-        0 = EXT:mai_calendar/Resources/Private/Layouts/
+        0 = EXT:mai_events/Resources/Private/Layouts/
     }
     dataProcessing {
-        10 = Maispace\MaiCalendar\DataProcessor\CalendarDataProcessor
+        10 = Maispace\MaiEvents\DataProcessor\EventsDataProcessor
         10 {
-            targetVariable = calendar
+            targetVariable = events
             viewMode = TEXT
             viewMode.data = flexform:settings.viewMode
             viewMode.ifEmpty = month

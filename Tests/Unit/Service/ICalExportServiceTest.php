@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Maispace\MaiCalendar\Tests\Unit\Service;
+namespace Maispace\MaiEvents\Tests\Unit\Service;
 
-use Maispace\MaiCalendar\Domain\Model\Event;
-use Maispace\MaiCalendar\Service\ICalExportService;
+use Maispace\MaiEvents\Domain\Model\Event;
+use Maispace\MaiEvents\Service\ICalExportService;
 use PHPUnit\Framework\TestCase;
 
 class ICalExportServiceTest extends TestCase
