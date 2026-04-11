@@ -4,7 +4,7 @@ services:
     autoconfigure: true
     public: false
 
-  Maispace\MaiCalendar\:
+  Maispace\MaiEvents\:
     resource: '../Classes/*'
 
   # Tag all EventProviderInterface implementations for automatic discovery
