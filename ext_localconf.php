@@ -3,7 +3,6 @@
 defined('TYPO3') or die();
 
 (static function (): void {
-    // Register the iCal export plugin
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'MaiEvents',
         'ICalExport',
@@ -12,6 +11,18 @@ defined('TYPO3') or die();
         ],
         [
             \Maispace\MaiEvents\Controller\EventsController::class => 'icalExport',
+        ],
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+    );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'MaiEvents',
+        'Registration',
+        [
+            \Maispace\MaiEvents\Controller\RegistrationController::class => 'show, register, confirm',
+        ],
+        [
+            \Maispace\MaiEvents\Controller\RegistrationController::class => 'register',
         ],
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
     );
