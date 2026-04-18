@@ -16,7 +16,6 @@ return (new Table($lang('table.tx_maievents_registration')))
     ->setLabel('last_name')
     ->setAlternativeLabelFields('first_name, email')
     ->appendAlternativeLabelToLabel()
-    ->setSearchFields('first_name, last_name, email')
     ->setIconFile('EXT:mai_events/Resources/Public/Icons/tx_maievents_registration.svg')
     ->setDefaultSorting('ORDER BY registered_at DESC')
     ->addColumn(
@@ -31,17 +30,17 @@ return (new Table($lang('table.tx_maievents_registration')))
     ->addColumn(
         'first_name',
         $lang('tx_maievents_registration.first_name'),
-        (new InputConfig())->setSize(30)->setMax(100)->setEval('trim,required')
+        (new InputConfig())->setSize(30)->setMax(100)->setEval('trim')->setRequired()
     )
     ->addColumn(
         'last_name',
         $lang('tx_maievents_registration.last_name'),
-        (new InputConfig())->setSize(30)->setMax(100)->setEval('trim,required')
+        (new InputConfig())->setSize(30)->setMax(100)->setEval('trim')->setRequired()
     )
     ->addColumn(
         'email',
         $lang('tx_maievents_registration.email'),
-        (new EmailConfig())->setEval('required')
+        (new EmailConfig())->setRequired()
     )
     ->addColumn(
         'status',

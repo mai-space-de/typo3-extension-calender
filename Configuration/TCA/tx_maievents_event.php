@@ -18,14 +18,13 @@ return (new Table($lang('table.tx_maievents_event')))
     ->setDefaultConfig()
     ->setLabel('title')
     ->setAlternativeLabelFields('start_date')
-    ->setSearchFields('title, description, location')
     ->setIconFile('EXT:mai_events/Resources/Public/Icons/tx_maievents_event.svg')
     ->setDefaultSorting('ORDER BY start_date ASC')
     ->setThumbnailField('image')
     ->addColumn(
         'title',
         $lang('tx_maievents_event.title'),
-        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim,required')
+        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim')->setRequired()
     )
     ->addColumn(
         'description',

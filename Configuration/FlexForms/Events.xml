@@ -6,47 +6,41 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.sheet.general</sheetTitle>
-                </TCEforms>
+                <sheetTitle>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.sheet.general</sheetTitle>
                 <type>array</type>
                 <el>
                     <settings.viewMode>
-                        <TCEforms>
-                            <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode</label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.month</numIndex>
-                                        <numIndex index="1">month</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.week</numIndex>
-                                        <numIndex index="1">week</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2" type="array">
-                                        <numIndex index="0">LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.list</numIndex>
-                                        <numIndex index="1">list</numIndex>
-                                    </numIndex>
-                                </items>
-                                <default>month</default>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items type="array">
+                                <numIndex index="0" type="array">
+                                    <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.month</label>
+                                    <value>month</value>
+                                </numIndex>
+                                <numIndex index="1" type="array">
+                                    <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.week</label>
+                                    <value>week</value>
+                                </numIndex>
+                                <numIndex index="2" type="array">
+                                    <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.viewMode.list</label>
+                                    <value>list</value>
+                                </numIndex>
+                            </items>
+                            <default>month</default>
+                        </config>
                     </settings.viewMode>
                     <settings.listLimit>
-                        <TCEforms>
-                            <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.listLimit</label>
-                            <config>
-                                <type>number</type>
-                                <default>10</default>
-                                <range>
-                                    <lower>1</lower>
-                                    <upper>100</upper>
-                                </range>
-                            </config>
-                        </TCEforms>
+                        <label>LLL:EXT:mai_events/Resources/Private/Language/locallang_db.xlf:flexform.settings.listLimit</label>
+                        <config>
+                            <type>number</type>
+                            <default>10</default>
+                            <range>
+                                <lower>1</lower>
+                                <upper>100</upper>
+                            </range>
+                        </config>
                     </settings.listLimit>
                 </el>
             </ROOT>
